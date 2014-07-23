@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bootstrap_validator_rails (0.0.4)
+    bootstrap_validator_rails (0.0.5)
       bootstrap_form (~> 2)
       rails (~> 4.1)
 
