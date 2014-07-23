@@ -7,8 +7,8 @@ module BootstrapValidatorRails
       object.class.validators_on(method)
     end
     
-    def generate_validation_message(method)
-      object.errors.generate_message(method, :presence, default: "is required")
+    def generate_validation_message(method, type)
+      object.errors.generate_message(method, type, default: "is invalid")
     end
 
     def text_field(method, options = {})
@@ -17,7 +17,10 @@ module BootstrapValidatorRails
       validators.each do |validator|
         if validator.kind == :presence
           validator_messages[:mv_notempty] = '' 
-          validator_messages[:mv_notempty_message] = generate_validation_message(method)
+          validator_messages[:mv_notempty_message] = generate_validation_message(method, validator.kind)
+        elsif validator.kind == :numericality
+          validator_messages[:mv_numeric_separator] = '' 
+          validator_messages[:mv_numeric_separator_message] = generate_validation_message(method, validator.kind)
         end
       end
       options[:data] = {}

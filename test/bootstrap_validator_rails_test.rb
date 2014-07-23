@@ -9,7 +9,5 @@ class BootstrapValidatorRailsTest < ActionView::TestCase
   end
 
   test 'test will be included later' do
-    
   end
-
 end
