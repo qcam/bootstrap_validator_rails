@@ -1,3 +1,4 @@
+require 'bootstrap_validator_rails/engine'
 require 'bootstrap_form'
 
 module BootstrapValidatorRails
