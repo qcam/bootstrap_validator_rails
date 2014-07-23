@@ -1,0 +1,2 @@
+module BootstrapValidatorRails
+end
