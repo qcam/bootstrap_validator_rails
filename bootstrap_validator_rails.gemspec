@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.description = "BootstrapValidator for Rails. https://github.com/nghuuphuoc/bootstrapvalidator"
   s.license     = "MIT"
 
+  s.files         = `git ls-files`.split("\n")
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
