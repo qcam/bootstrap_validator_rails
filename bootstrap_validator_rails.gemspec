@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.version     = BootstrapValidatorRails::VERSION
   s.authors     = ["huynhquancam"]
   s.email       = ["huynhquancam@gmail.com"]
-  s.homepage    = "http://github.com/huynhquancam/bootstrap_validator-rails"
+  s.homepage    = "http://github.com/huynhquancam/bootstrap_validator_rails"
   s.summary     = "BootstrapValidator for Rails"
   s.description = "BootstrapValidator for Rails. https://github.com/nghuuphuoc/bootstrapvalidator"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.1.4"

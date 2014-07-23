@@ -1,7 +1,6 @@
 require 'bootstrap_form'
 
 module BootstrapValidatorRails
-
   class FormBuilder < BootstrapForm::FormBuilder
     def validators_of(method)
       object.class.validators_on(method)
