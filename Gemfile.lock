@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    bootstrap_validator-rails (0.0.1)
+    bootstrap_validator-rails (0.0.3)
+      bootstrap_form
       rails (~> 4.1.4)
 
 GEM
@@ -34,6 +35,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bootstrap_form (2.1.1)
     builder (3.2.2)
     erubis (2.7.0)
     hike (1.2.3)

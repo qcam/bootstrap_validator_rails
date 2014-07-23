@@ -1,7 +1,15 @@
 require 'test_helper'
 
-class BootstrapValidatorRailsTest < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, BootstrapValidatorRails
+class BootstrapValidatorRailsTest < ActionView::TestCase
+  def setup
+    @post = Post.new(title: 'An awesome title')
+    @form = view.validated_bootstrap_form_for(@post, url: '#') do |f|
+      f.text_field :title
+    end
   end
+
+  test 'test will be included later' do
+    
+  end
+
 end
