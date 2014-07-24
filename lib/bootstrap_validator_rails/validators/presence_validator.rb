@@ -1,8 +1,8 @@
 module BootstrapValidatorRails
   module Validators
     class Presence
-      def initialize(record, method)
-        @record, @method = record, method
+      def initialize(record, method, validator)
+        @record, @method, @validator = record, method, @validator
       end
 
       def generate_data

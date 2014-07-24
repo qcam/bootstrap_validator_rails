@@ -3,15 +3,16 @@ module BootstrapValidatorRails
     class Generator
       VALIDATOR_SUPPORTED = [:presence, :numericality]
 
-      def initialize(record, kind, method)
-        @record, @kind, @method = record, kind, method
+      def initialize(record, validator, method)
+        @record, @validator, @method = record, validator, method
+        @kind = validator.kind
       end
 
-      def generate_data
+      def generate_data(options = {})
         return {} unless VALIDATOR_SUPPORTED.include?(@kind)
         klass = "BootstrapValidatorRails::Validators::#{@kind.to_s.capitalize}".constantize
-        @validator = klass.new(@record, @method)
-        @validator.generate_data
+        bootstrap_validator = klass.new(@record, @method, @validator)
+        bootstrap_validator.generate_data
       end
     end
   end

@@ -9,7 +9,7 @@ module BootstrapValidatorRails
         validators = validators_on(method)
 
         validators.inject({}) do |attributes, validator|
-          @generator = BootstrapValidatorRails::Validators::Generator.new(@record, validator.kind, method)
+          @generator = BootstrapValidatorRails::Validators::Generator.new(@record, validator, method)
           attributes.merge @generator.generate_data
         end
       end
