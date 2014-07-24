@@ -3,14 +3,14 @@ require 'bootstrap_form'
 module BootstrapValidatorRails
   class FormBuilder < BootstrapForm::FormBuilder
     def initialize(object_name, object, template, options)
-      @validator_messages = ValidatorMessage.new(object)
+      @attributes = BootstrapValidatorRails::Validators::Attributes.new(object)
       super
     end
 
     def text_field(method, options = {})
-      attribute = @validator_messages.attributes_of(method)
+      attribute = @attributes.validator_data(method)
       
-      options[:data] = {}
+      options[:data] ||= {}
       options[:data] = options[:data].merge(attribute)
       super
     end
