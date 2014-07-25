@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["huynhquancam@gmail.com"]
   s.homepage    = "http://github.com/huynhquancam/bootstrap_validator_rails"
   s.summary     = "BootstrapValidator for Rails"
-  s.description = "BootstrapValidator for Rails. https://github.com/nghuuphuoc/bootstrapvalidator"
+  s.description = "Rails Client-side validation using jQuery BootstrapValidator plugin. https://github.com/nghuuphuoc/bootstrapvalidator"
   s.license     = "MIT"
 
   s.files         = `git ls-files`.split("\n")
@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   s.add_dependency "bootstrap_form", '~> 2.0'
   s.add_dependency "jquery-rails"
 
-  s.add_development_dependency "sqlite3", '~> 1.3.0'
+  s.add_development_dependency "sqlite3", '~> 1.3'
   s.add_development_dependency "rspec-rails", '~> 3.0'
 end
