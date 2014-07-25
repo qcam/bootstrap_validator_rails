@@ -108,6 +108,6 @@ Please refer to Bootstrap Form: https://github.com/bootstrap-ruby/rails-bootstra
   * in
   * minimum
   * maxiumum
-```
+* in progress ...
 
 
