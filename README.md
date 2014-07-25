@@ -39,9 +39,15 @@ end
 In your form
 
 ```haml
-= bootstrap_validation_form_for(@user) do |f|
+= bootstrap_validation_form_for(@product) do |f|
   = f.text_field :name
   = f.text_field :price
+```
+Please make sure to add the script
+```javascript
+$(document).ready(function() {
+  $('#your_form').bootstrapValidator();
+});
 ```
 
 Generated HTML
@@ -56,6 +62,7 @@ Currenty support for `text_field`
 List of validators supported
 ```
 presence
-numericality(greater_than, greater_than_or_equal_to, less_than, less_than_or_equal_to)
+numericality(only_integer, greater_than, greater_than_or_equal_to, less_than, less_than_or_equal_to)
 ```
+
 
