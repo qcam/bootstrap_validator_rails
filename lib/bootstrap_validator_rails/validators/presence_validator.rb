@@ -6,14 +6,14 @@ module BootstrapValidatorRails
       end
 
       def generate_data
-        {
-          :bv_notempty => '',
-          :bv_notempty_message => generate_message
-        }
+        data = {}
+        data[:bv_notempty] = 'true'
+        data[:bv_notempty_message] = generate_message
+        data
       end
 
       def generate_message
-        @record.errors.generate_message(@method, :presence, {default: 'cannot be blank'})
+        @record.errors.generate_message(@method, :blank, default: "can't be blank")
       end
     end
   end
