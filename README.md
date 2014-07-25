@@ -1,31 +1,44 @@
-bootstrap_validator_rails
+Bootstrap Validator Rails
 =========================
 
 Bootstrap Validator Plugin for Rails: https://github.com/nghuuphuoc/bootstrapvalidator
-And I use Bootstrap Form as the form builder. https://github.com/bootstrap-ruby
+
+Bootstrap Form as the form builder. https://github.com/bootstrap-ruby/rails-bootstrap-form
 
 ##Installation
-```
+```sh
 gem install bootstrap_validator_rails
 ```
+
 or add this to your Gemfile
-```
-gem 'bootstrap_validator_rails'
+
+```ruby
+gem 'bootstrap_validator_rails', '~> 0.3.0'
 ```
 
-Then add this to your `application.js`
+then run 
+
+```sh
+bundle install
+```
+
+##Usage
+
+Add this to your `application.js`
+
 ```javascript
 //= require bootstrapValidator
+//or
+//= require bootstrapValidator.min
 ```
 
 and your `application.css`
 
 ```css
-*= require bootstrapValidator
+/*= require bootstrapValidator */
+/* or */
+/*= require bootstrapValidator.min */
 ```
-Run `bundle install`
-
-##Usage
 
 In you model
 
@@ -78,6 +91,8 @@ Currenty support for `text_field`
 * text_field 
 * time_field
 * week_field
+
+Please refer to Bootstrap Form: https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 ## List of validators supported
 * presence
