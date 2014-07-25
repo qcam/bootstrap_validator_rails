@@ -33,6 +33,7 @@ In you model
 class Product
   validates :name, presence: true
   validates :price, numericality: {greater_than: 20}
+  validates :intro, length: {in: 50..200}
 end
 ```
 
@@ -63,6 +64,7 @@ List of validators supported
 ```
 presence
 numericality(only_integer, greater_than, greater_than_or_equal_to, less_than, less_than_or_equal_to)
+length(is, within, in, minimum, maxiumum)
 ```
 
 
