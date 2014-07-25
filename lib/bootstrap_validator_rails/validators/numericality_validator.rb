@@ -7,8 +7,8 @@ module BootstrapValidatorRails
 
       def generate_data
         data = {
-          :bv_numeric_separator => '',
-          :bv_numeric_separator_message => generate_message
+          :bv_integer => 'true',
+          :bv_numeric_separator => '.',
         }
         
         data.merge(generate_options)
