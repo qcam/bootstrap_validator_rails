@@ -7,7 +7,7 @@ module BootstrapValidatorRails
 
       def generate_data
         data = {
-          :bv_integer => 'true',
+          :bv_numeric => 'true',
           :bv_numeric_separator => '.',
         }
         
@@ -23,22 +23,30 @@ module BootstrapValidatorRails
 
         data = {}
 
+        if options[:only_integer].present?
+          data[:bv_integer] = 'true'
+        end
+
         if options[:greater_than].present?
+          data[:bv_greaterthan] = 'true'
           data[:bv_greaterthan_inclusive] = 'false'
           data[:bv_greaterthan_value] = options[:greater_than]
         end
 
         if options[:greater_than_or_equal_to].present?
+          data[:bv_greaterthan] = 'true'
           data[:bv_greaterthan_inclusive] = 'true'
           data[:bv_greaterthan_value] = options[:greater_than_or_equal_to]
         end
 
         if options[:less_than].present?
+          data[:bv_lessthan] = 'true'
           data[:bv_lessthan_inclusive] = 'false'
           data[:bv_lessthan_value] = options[:less_than]
         end
 
         if options[:less_than_or_equal_to].present?
+          data[:bv_lessthan] = 'true'
           data[:bv_lessthan_inclusive] = 'true'
           data[:bv_lessthan_value] = options[:less_than_or_equal_to]
         end
