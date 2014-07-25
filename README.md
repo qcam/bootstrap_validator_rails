@@ -1,11 +1,12 @@
 Bootstrap Validator Rails
 =========================
 
-Bootstrap Validator Plugin for Rails: https://github.com/nghuuphuoc/bootstrapvalidator
+Rails Client side validators using BootstrapValidator Plugin: https://github.com/nghuuphuoc/bootstrapvalidator
 
 Bootstrap Form as the form builder. https://github.com/bootstrap-ruby/rails-bootstrap-form
 
 ##Installation
+
 ```sh
 gem install bootstrap_validator_rails
 ```
@@ -70,8 +71,6 @@ Generated HTML
 <input id='product_name' name='product[name]' data-bv-notempty='' data-bv-notempty-message='cannot be blank'/> 
 <input id='product_price' name='product[price]' data-bv-greaterthan-inclusive='false' data-bv-greaterthan-value='20' />
 ```
-
-Currenty support for `text_field`
 
 ## List of helpers supported
 
