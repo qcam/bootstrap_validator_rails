@@ -60,11 +60,39 @@ Generated HTML
 
 Currenty support for `text_field`
 
-List of validators supported
-```
-presence
-numericality(only_integer, greater_than, greater_than_or_equal_to, less_than, less_than_or_equal_to)
-length(is, within, in, minimum, maxiumum)
+## List of helpers supported
+
+* color_field 
+* date_field  
+* datetime_field
+* datetime_local_field
+* email_field 
+* month_field 
+* number_field 
+* password_field 
+* phone_field
+* range_field 
+* search_field 
+* telephone_field 
+* text_area 
+* text_field 
+* time_field
+* week_field
+
+## List of validators supported
+* presence
+* numericality
+  * only_integer 
+  * greater_than
+  * greater_than_or_equal_to 
+  * less_than 
+  * less_than_or_equal_to
+* length
+  * is
+  * within
+  * in
+  * minimum
+  * maxiumum
 ```
 
 
