@@ -7,12 +7,13 @@ module BootstrapValidatorRails
       super
     end
 
-    def text_field(method, options = {})
-      attribute = @attributes.validator_data(method)
-      
-      options[:data] ||= {}
-      options[:data] = options[:data].merge(attribute)
-      super
+    FIELD_HELPERS.each do |method_name|
+      define_method(method_name) do |method, options = {}|
+        attribute = @attributes.validator_data(method)
+        options[:data] ||= {}
+        options[:data] = options[:data].merge(attribute)
+        super(method, options)
+      end
     end
   end
 end
