@@ -4,7 +4,6 @@ PATH
     bootstrap_validator_rails (0.3.0)
       bootstrap_form (~> 2.0)
       jquery-rails
-      rails (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -112,5 +111,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap_validator_rails!
+  rails (~> 4.1)
   rspec-rails (~> 3.0)
   sqlite3 (~> 1.3)
