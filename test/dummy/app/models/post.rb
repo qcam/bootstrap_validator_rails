@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true, length: {is: 20}
+  validates :title, presence: true, length: {within: 20..50}
 end
