@@ -1,20 +1,11 @@
 module BootstrapValidatorRails
   module Validators
-    class Numericality 
-      def initialize(record, method, validator)
-        @record, @method, @validator = record, method, validator
-      end
-
+    class Numericality < Validator
       def generate_data
         data = {}
-
-        options = @validator.try(:options) 
-
-        if options.present?
-          BootstrapValidatorRails::CONFIGURATION[:unsupported_options].each do |opt|
-            return data if options.has_key? opt
-          end
-        end
+        return data if unsupported?
+        
+        options = validator_options
 
         data[:bv_numeric] = 'true'
         data[:bv_numeric_separator] = '.'
