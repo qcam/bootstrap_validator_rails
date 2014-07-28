@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Bootstrap validator rails : Rails Client side validation using BootstrapValidator Plugin" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Bootstrap validator rails</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/huynhquancam/bootstrap_validator_rails">View on GitHub</a>
+
+          <h1 id="project_title">Bootstrap validator rails</h1>
+          <h2 id="project_tagline">Rails Client side validation using BootstrapValidator Plugin</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/huynhquancam/bootstrap_validator_rails/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/huynhquancam/bootstrap_validator_rails/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="bootstrap-validator-rails" class="anchor" href="#bootstrap-validator-rails"><span class="octicon octicon-link"></span></a>Bootstrap Validator Rails</h1>
+
+<p>Rails Client side validators using BootstrapValidator Plugin: <a href="https://github.com/nghuuphuoc/bootstrapvalidator">https://github.com/nghuuphuoc/bootstrapvalidator</a></p>
+
+<p>Bootstrap Form as the form builder. <a href="https://github.com/bootstrap-ruby/rails-bootstrap-form">https://github.com/bootstrap-ruby/rails-bootstrap-form</a></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight highlight-sh"><pre>gem install bootstrap_validator_rails
+</pre></div>
+
+<p>or add this to your Gemfile</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">gem</span> <span class="s1">'bootstrap_validator_rails'</span><span class="p">,</span> <span class="s1">'~&gt; 0.3.0'</span>
+</pre></div>
+
+<p>then run </p>
+
+<div class="highlight highlight-sh"><pre>bundle install
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Add this to your <code>application.js</code></p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">//= require bootstrapValidator</span>
+<span class="c1">//or</span>
+<span class="c1">//= require bootstrapValidator.min</span>
+</pre></div>
+
+<p>and your <code>application.css</code></p>
+
+<div class="highlight highlight-css"><pre><span class="c">/*= require bootstrapValidator */</span>
+<span class="c">/* or */</span>
+<span class="c">/*= require bootstrapValidator.min */</span>
+</pre></div>
+
+<p>In you model</p>
+
+<div class="highlight highlight-ruby"><pre><span class="k">class</span> <span class="nc">Product</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:price</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span><span class="ss">greater_than</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:intro</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span><span class="k">in</span><span class="p">:</span> <span class="mi">50</span><span class="o">.</span><span class="n">.</span><span class="mi">200</span><span class="p">}</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>In your form</p>
+
+<div class="highlight highlight-haml"><pre><span class="p">=</span> <span class="n">bootstrap_validation_form_for</span><span class="p">(</span><span class="vi">@product</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+  <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:name</span>
+  <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:price</span>
+</pre></div>
+
+<p>Please make sure to add the script</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#your_form'</span><span class="p">).</span><span class="nx">bootstrapValidator</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Generated HTML</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">'product_name'</span> <span class="na">name=</span><span class="s">'product[name]'</span> <span class="na">data-bv-notempty=</span><span class="s">''</span> <span class="na">data-bv-notempty-message=</span><span class="s">'cannot be blank'</span><span class="nt">/&gt;</span> 
+<span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">'product_price'</span> <span class="na">name=</span><span class="s">'product[price]'</span> <span class="na">data-bv-greaterthan-inclusive=</span><span class="s">'false'</span> <span class="na">data-bv-greaterthan-value=</span><span class="s">'20'</span> <span class="nt">/&gt;</span>
+</pre></div>
+
+<h2>
+<a name="list-of-helpers-supported" class="anchor" href="#list-of-helpers-supported"><span class="octicon octicon-link"></span></a>List of helpers supported</h2>
+
+<ul>
+<li>color_field </li>
+<li>date_field<br>
+</li>
+<li>datetime_field</li>
+<li>datetime_local_field</li>
+<li>email_field </li>
+<li>month_field </li>
+<li>number_field </li>
+<li>password_field </li>
+<li>phone_field</li>
+<li>range_field </li>
+<li>search_field </li>
+<li>telephone_field </li>
+<li>text_area </li>
+<li>text_field </li>
+<li>time_field</li>
+<li>week_field</li>
+</ul><p>Please refer to Bootstrap Form: <a href="https://github.com/bootstrap-ruby/rails-bootstrap-forms">https://github.com/bootstrap-ruby/rails-bootstrap-forms</a></p>
+
+<h2>
+<a name="list-of-validators-supported" class="anchor" href="#list-of-validators-supported"><span class="octicon octicon-link"></span></a>List of validators supported</h2>
+
+<ul>
+<li>presence</li>
+<li>numericality
+
+<ul>
+<li>only_integer </li>
+<li>greater_than</li>
+<li>greater_than_or_equal_to </li>
+<li>less_than </li>
+<li>less_than_or_equal_to</li>
+</ul>
+</li>
+<li>length
+
+<ul>
+<li>is</li>
+<li>within</li>
+<li>in</li>
+<li>minimum</li>
+<li>maxiumum</li>
+</ul>
+</li>
+<li>in progress ...</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Bootstrap validator rails maintained by <a href="https://github.com/huynhquancam">huynhquancam</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
