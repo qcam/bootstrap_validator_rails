@@ -48,6 +48,7 @@ class Product
   validates :name, presence: true
   validates :price, numericality: {greater_than: 20}
   validates :intro, length: {in: 50..200}
+  validates :sku, format: {with: /\A[a-zA-Z]+\z/, message: "only allows letters"}
 end
 ```
 
@@ -107,6 +108,7 @@ Please refer to Bootstrap Form: https://github.com/bootstrap-ruby/rails-bootstra
   * in
   * minimum
   * maxiumum
+* format
+  * with: regular expression
 * in progress ...
-
 
