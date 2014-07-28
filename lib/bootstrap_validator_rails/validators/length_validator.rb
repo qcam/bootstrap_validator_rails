@@ -7,8 +7,14 @@ module BootstrapValidatorRails
 
       def generate_data
         data = {}
-        options = @validator.options
-        
+        options = @validator.try(:options) 
+
+        if options.present?
+          BootstrapValidatorRails::CONFIGURATION[:unsupported_options].each do |opt|
+            return data if options.has_key? opt
+          end
+        end
+
         data[:bv_stringlength] = 'true'
 
         if options[:minimum]

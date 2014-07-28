@@ -6,10 +6,18 @@ module BootstrapValidatorRails
       end
 
       def generate_data
-        data = {
-          :bv_numeric => 'true',
-          :bv_numeric_separator => '.',
-        }
+        data = {}
+
+        options = @validator.try(:options) 
+
+        if options.present?
+          BootstrapValidatorRails::CONFIGURATION[:unsupported_options].each do |opt|
+            return data if options.has_key? opt
+          end
+        end
+
+        data[:bv_numeric] = 'true'
+        data[:bv_numeric_separator] = '.'
         
         data.merge(generate_options)
       end

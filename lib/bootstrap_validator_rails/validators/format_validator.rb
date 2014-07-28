@@ -13,7 +13,14 @@ module BootstrapValidatorRails
 
       def generate_data
         data = {}
-        options = @validator.options
+        options = @validator.try(:options) 
+
+        if options.present?
+          BootstrapValidatorRails::CONFIGURATION[:unsupported_options].each do |opt|
+            return data if options.has_key? opt
+          end
+        end
+
         regex = options[:with].to_javascript
         regex.sub!('/^', '^')
         regex.sub!('$/', '$')
