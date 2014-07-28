@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bootstrap_validator_rails (0.3.0)
+    bootstrap_validator_rails (0.4.0)
       bootstrap_form (~> 2.0)
       jquery-rails
 

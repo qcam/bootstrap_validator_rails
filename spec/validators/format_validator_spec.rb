@@ -8,7 +8,6 @@ describe BootstrapValidatorRails::Validators::Format do
 
   describe '#generate_data' do
     it 'generates html data tag' do
-      p validator
       generated_data = bootstrap_validator.generate_data
       expect(generated_data).to have_key :bv_regexp
       expect(generated_data).to have_key :bv_regexp_regexp

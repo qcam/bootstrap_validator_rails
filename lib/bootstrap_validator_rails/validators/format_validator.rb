@@ -15,6 +15,8 @@ module BootstrapValidatorRails
         data = {}
         options = @validator.options
         regex = options[:with].to_javascript
+        regex.sub!('/^', '^')
+        regex.sub!('$/', '$')
         
         data[:bv_regexp] = 'true'
 
