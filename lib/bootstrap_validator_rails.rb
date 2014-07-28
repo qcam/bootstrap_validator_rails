@@ -6,6 +6,7 @@ require 'bootstrap_validator_rails/validators/generator'
 require 'bootstrap_validator_rails/validators/presence_validator'
 require 'bootstrap_validator_rails/validators/numericality_validator'
 require 'bootstrap_validator_rails/validators/length_validator'
+require 'bootstrap_validator_rails/validators/format_validator'
 
 ActionView::Base.send :include, BootstrapValidatorRails::Helper
 

@@ -1,7 +1,7 @@
 module BootstrapValidatorRails
   module Validators
     class Generator
-      VALIDATOR_SUPPORTED = [:presence, :numericality, :length]
+      VALIDATOR_SUPPORTED = [:presence, :numericality, :length, :format]
 
       def initialize(record, validator, method)
         @record, @validator, @method = record, validator, method
