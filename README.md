@@ -49,6 +49,7 @@ class Product
   validates :price, numericality: {greater_than: 20}
   validates :intro, length: {in: 50..200}
   validates :sku, format: {with: /\A[a-zA-Z]+\z/, message: "only allows letters"}
+  # Thank Brian Cardarella for this: http://reefpoints.dockyard.com/ruby/2011/11/18/convert-ruby-regexp-to-javascript-regex.html
 end
 ```
 
