@@ -7,11 +7,9 @@ module BootstrapValidatorRails
 
     def bv_options_for(object)
       validators = object.class.validators
-
       bv_options = {
         fields: {}
       }
-
       validators.each do |validator|
         methods = validator.attributes
         methods.each do |method|
@@ -20,8 +18,15 @@ module BootstrapValidatorRails
           bv_options[:fields].deep_merge! json
         end
       end
+      escape_javascript bv_options.to_json.html_safe
+    end
 
-      bv_options.to_json.html_safe
+    def bv_javascript_for(object)
+      javascript_tag("
+        $(document).ready(function() {
+          bv_form('.bv_form', #{bv_options_for(object)})
+        });
+      ")
     end
   end
 end
