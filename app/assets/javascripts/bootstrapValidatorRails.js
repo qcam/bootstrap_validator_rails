@@ -4,6 +4,6 @@
  * @author Jack A. Huang
  * @url http://github.com/huynhquancam/bootstrap_validator_rails/
  */
-var bootstrap_validation_forms = function(form, options) {
-  $('#' + form).bootstrap_validator(options);
+var bv_form = function(form_selector, options) {
+  $(form_selector).bootstrapValidator(options);
 };
