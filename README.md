@@ -13,7 +13,7 @@ gem install bootstrap_validator_rails
 or add this to your Gemfile
 
 ```ruby
-gem 'bootstrap_validator_rails', '~> 0.3.0'
+gem 'bootstrap_validator_rails', '~> 0.6.0'
 ```
 
 then run 
