@@ -25,6 +25,10 @@ module BootstrapValidatorRails
 
         data
       end
+
+      def generate_json
+        {}
+      end
     end
   end
 end

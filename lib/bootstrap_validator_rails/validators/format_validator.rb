@@ -29,6 +29,29 @@ module BootstrapValidatorRails
 
         data
       end
+
+      def generate_object
+        data = {}
+        return data if unsupported?
+        
+        options = validator_options
+
+        regex = options[:with].to_javascript
+        regex.sub!('/^', '^')
+        regex.sub!('$/', '$')
+        
+        data["regexp"] = {}
+
+        if options[:with]
+          data["regexp"]["regexp"] = regex
+        end
+
+        if options[:message]
+          data["regexp"]["message"] = options[:message]
+        end
+
+        {@method => {validators: data}}
+      end
     end
   end
 end

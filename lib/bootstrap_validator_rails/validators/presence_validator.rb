@@ -13,6 +13,13 @@ module BootstrapValidatorRails
       def generate_message
         @record.errors.generate_message(@method, :blank, default: "can't be blank")
       end
+
+      def generate_object(options = {})
+        data = {}
+        data["notEmpty"] = {}
+        data["notEmpty"][:message] = generate_message
+        {@method => {validators: data}}
+      end
     end
   end
 end

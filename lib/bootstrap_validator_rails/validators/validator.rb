@@ -10,6 +10,10 @@ module BootstrapValidatorRails
         options || {}
       end
 
+      def generate_object(options = {})
+        options
+      end
+
       def unsupported?
         options = validator_options
         unsupported_options.any? { |opt| options.has_key? opt }
