@@ -104,6 +104,8 @@ Please refer to Bootstrap Form: https://github.com/bootstrap-ruby/rails-bootstra
   * greater_than_or_equal_to 
   * less_than 
   * less_than_or_equal_to
+  * odd
+  * even
 * length
   * is
   * within
