@@ -25,6 +25,30 @@ module BootstrapValidatorRails
 
         data
       end
+
+      def generate_object
+        options = @validator.options
+
+        data = {}
+
+        data["stringLength"] = {}
+
+        if options[:minimum]
+          data["stringLength"]["min"] = options[:minimum]
+        end
+
+        if options[:maximum]
+          data["stringLength"]["max"] = options[:maximum] 
+        end
+
+        if options[:is]
+          data["stringLength"]["min"] = options[:is] 
+          data["stringLength"]["max"] = options[:is] 
+          data["stringLength"]['message'] = @record.errors.generate_message(@method) 
+        end
+
+        {method_key => {validators: data}}
+      end
     end
   end
 end
