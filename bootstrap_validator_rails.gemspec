@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["huynhquancam@gmail.com"]
   s.homepage    = "http://github.com/huynhquancam/bootstrap_validator_rails"
   s.summary     = "BootstrapValidator for Rails"
-  s.description = "Rails Client-side validation using jQuery BootstrapValidator plugin. https://github.com/nghuuphuoc/bootstrapvalidator"
+  s.description = "Rails Form Builder supports Client-side validation using jQuery BootstrapValidator plugin. https://github.com/nghuuphuoc/bootstrapvalidator"
   s.license     = "MIT"
 
   s.files         = `git ls-files`.split("\n")
