@@ -117,3 +117,50 @@ Please refer to Bootstrap Form: https://github.com/bootstrap-ruby/rails-bootstra
 * acceptance
 * in progress ...
 
+## Using Simple Form, Formtastic, Rails Form?
+
+Add this to your `application.js`
+
+```coffeescript
+//= require bootstrapValidatorRails
+```
+
+And in your HAML/ERB
+
+```haml
+.my-awesome-form= simple_form_for @post do |f|
+  = f.input :title
+
+= bv_javascript_for @post
+```
+
+Actually `bv_javascript_for` will generate the script like this
+
+```javascript
+//<![CDATA[
+  $(document).ready(function() {
+    bv_form('.bv_form', {"fields":{"post[title]":{"validators":{"notEmpty":{"message":"can't be blank"},"regexp":{"regexp":"^[a-zA-Z]+$","message":"only allows letters"}}},"post[price]":{"validators":{"step":{"message":"should be odd","base":1,"step":2}}},"post[accepted]":{"validators":{"notEmpty":{"message":"should be accepted"}}}}})
+  });
+      
+//]]>
+```
+
+So remember to add **bv_form** as your form class like
+
+```html
+= simple_form_for @post, html: {class: 'bv_form'} do |f|
+  = f.input :title
+```
+
+#### Please note that as BootstrapValidator is based on Bootstrap so make sure that your form markup is following Bootstrap Form
+
+```html
+<div class="form-group">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="terms">
+      Check yourself
+    </label>
+  </div>
+</div>
+```
