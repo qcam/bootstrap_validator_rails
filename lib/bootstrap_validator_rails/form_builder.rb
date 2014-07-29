@@ -20,7 +20,8 @@ module BootstrapValidatorRails
       options[:data] ||= {}
       attribute = @attributes.validator_data(method)
       options[:data] = options[:data].merge(attribute)
-      super(method, options, checked_value, unchecked_value, &block)
+      options[:include_hidden] = false
+      content_tag :div, super, class: 'form-group'
     end
   end
 end
