@@ -1,8 +1,7 @@
 Bootstrap Validator Rails
 =========================
 
-Rails Client side validators using BootstrapValidator Plugin: https://github.com/nghuuphuoc/bootstrapvalidator
-
+Rails client side validation using BootstrapValidator Plugin: https://github.com/nghuuphuoc/bootstrapvalidator
 Bootstrap Form as the form builder. https://github.com/bootstrap-ruby/rails-bootstrap-form
 
 ##Installation
@@ -134,25 +133,24 @@ And in your HAML/ERB
 = bv_javascript_for @post
 ```
 
-Actually `bv_javascript_for` will generate the script like this
+Actually `bv_javascript_for` generates script like this
 
 ```javascript
 //<![CDATA[
   $(document).ready(function() {
     bv_form('.bv_form', {"fields":{"post[title]":{"validators":{"notEmpty":{"message":"can't be blank"},"regexp":{"regexp":"^[a-zA-Z]+$","message":"only allows letters"}}},"post[price]":{"validators":{"step":{"message":"should be odd","base":1,"step":2}}},"post[accepted]":{"validators":{"notEmpty":{"message":"should be accepted"}}}}})
   });
-      
 //]]>
 ```
 
-So remember to add **bv_form** as your form class like
+So make sure that you have added **bv_form** to your form classes
 
 ```html
 = simple_form_for @post, html: {class: 'bv_form'} do |f|
   = f.input :title
 ```
 
-#### Please note that as BootstrapValidator is based on Bootstrap so make sure that your form markup is following Bootstrap Form
+#### Please note that as BootstrapValidator jQuery plugin is based on Bootstrap so make sure that your form markup is following Bootstrap Form
 
 ```html
 <div class="form-group">
