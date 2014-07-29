@@ -112,5 +112,6 @@ Please refer to Bootstrap Form: https://github.com/bootstrap-ruby/rails-bootstra
   * maxiumum
 * format
   * with: regular expression
+* acceptance
 * in progress ...
 
