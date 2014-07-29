@@ -4,7 +4,7 @@ class BootstrapValidatorRailsTest < ActionView::TestCase
   def setup
     @post = Post.new(title: 'An awesome title')
     @form = view.bootstrap_validation_form_for(@post, url: '#') do |f|
-      f.number_field :title
+      f.check_box :accepted
     end
   end
 

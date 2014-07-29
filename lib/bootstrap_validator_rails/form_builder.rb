@@ -15,5 +15,12 @@ module BootstrapValidatorRails
         super(method, options)
       end
     end
+
+    def check_box(method, options = {}, checked_value = "1", unchecked_value = "0", &block)
+      options[:data] ||= {}
+      attribute = @attributes.validator_data(method)
+      options[:data] = options[:data].merge(attribute)
+      super(method, options, checked_value, unchecked_value, &block)
+    end
   end
 end
