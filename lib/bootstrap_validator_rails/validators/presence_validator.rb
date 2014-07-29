@@ -17,7 +17,7 @@ module BootstrapValidatorRails
       def generate_object(options = {})
         data = {}
         data["notEmpty"] = {}
-        data["notEmpty"][:message] = generate_message
+        data["notEmpty"]["message"] = generate_message
         {@method => {validators: data}}
       end
     end

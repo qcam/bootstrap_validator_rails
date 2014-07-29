@@ -16,7 +16,8 @@ module BootstrapValidatorRails
         methods = validator.attributes
         methods.each do |method|
           @generator = BootstrapValidatorRails::Validators::Generator.new(object, validator, method)
-          bv_options[:fields].merge! @generator.generate_json
+          json = @generator.generate_json
+          bv_options[:fields].deep_merge! json
         end
       end
 
