@@ -18,7 +18,7 @@ module BootstrapValidatorRails
           bv_options[:fields].deep_merge! json
         end
       end
-      escape_javascript bv_options.to_json.html_safe
+      bv_options.to_json.html_safe
     end
 
     def bv_javascript_for(object)
