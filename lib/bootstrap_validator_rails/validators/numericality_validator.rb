@@ -49,6 +49,20 @@ module BootstrapValidatorRails
           data[:bv_lessthan_inclusive] = 'true'
           data[:bv_lessthan_value] = options[:less_than_or_equal_to]
         end
+
+        if options[:odd].present?
+          data[:bv_step] = 'true'
+          data[:bv_step_message] = 'should be odd'
+          data[:bv_step_base] = '1'
+          data[:bv_step_step] = '2'
+        end
+
+        if options[:even].present?
+          data[:bv_step] = 'true'
+          data[:bv_step_message] = 'should be even'
+          data[:bv_step_base] = '0'
+          data[:bv_step_step] = '2'
+        end
         data
       end
     end

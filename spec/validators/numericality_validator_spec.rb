@@ -13,6 +13,8 @@ describe BootstrapValidatorRails::Validators::Numericality do
       expect(generated_data).to have_key :bv_greaterthan
       expect(generated_data).to have_key :bv_greaterthan_inclusive
       expect(generated_data).to have_key :bv_greaterthan_value
+      expect(generated_data).to have_key :bv_step
+      expect(generated_data).to have_key :bv_step_base
       expect(generated_data[:bv_greaterthan_value]).to eq 20
     end
   end
