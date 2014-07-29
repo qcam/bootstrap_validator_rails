@@ -18,7 +18,7 @@ module BootstrapValidatorRails
         data = {}
         data["notEmpty"] = {}
         data["notEmpty"]["message"] = generate_message
-        {@method => {validators: data}}
+        {method_key => {validators: data}}
       end
     end
   end

@@ -23,6 +23,10 @@ module BootstrapValidatorRails
       def unsupported_options
         BootstrapValidatorRails::CONFIGURATION[:unsupported_options]
       end
+
+      def method_key
+        "#{@record.class.to_s.downcase.to_sym}[#{@method}]"
+      end
     end
   end
 end

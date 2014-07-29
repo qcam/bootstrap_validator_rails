@@ -65,7 +65,7 @@ module BootstrapValidatorRails
           data["step"]["step"] = 2
         end
 
-        {@method => {validators: data}}
+        {method_key => {validators: data}}
       end
 
       def generate_options
