@@ -16,16 +16,16 @@ describe BootstrapValidatorRails::Validators::Presence do
   
   describe '#generate_data' do
     it 'generates data options' do
-      generated_data = bootstrap_validator.generate_data
-      expect(generated_data).to have_key :bv_notempty
-      expect(generated_data).to have_key :bv_notempty_message
+      html_attributes = bootstrap_validator.html_attributes
+      expect(html_attributes).to have_key :bv_notempty
+      expect(html_attributes).to have_key :bv_notempty_message
     end
   end
 
   describe '#generate_object' do
     it 'generates object for javascript' do
-      generate_object = bootstrap_validator.generate_object
-      expect(generate_object).to eq(
+      js_options = bootstrap_validator.js_options
+      expect(js_options).to eq(
         {
           'presence_product[title]' => {
             'validators' => {

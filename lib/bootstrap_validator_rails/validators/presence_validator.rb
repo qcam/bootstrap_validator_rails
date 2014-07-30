@@ -1,24 +1,18 @@
 module BootstrapValidatorRails
   module Validators
     class Presence < Validator
-      def generate_data
-        data = {}
-        return data if unsupported?
-
-        data[:bv_notempty] = 'true'
-        data[:bv_notempty_message] = generate_message
-        data
-      end
-
       def generate_message
         @record.errors.generate_message(@method, :blank, default: "can't be blank")
       end
 
-      def generate_object(options = {})
-        data = {}
-        data["notEmpty"] = {}
-        data["notEmpty"]["message"] = generate_message
-        {method_key => {'validators' => data}}
+      def generate_options!(options = {})
+        return if unsupported?
+
+        @js_options['notEmpty'] = {} 
+        @html_attributes[:bv_notempty] = 'true'
+
+        @js_options['notEmpty']['message'] = generate_message
+        @html_attributes[:bv_notempty_message] = generate_message 
       end
     end
   end

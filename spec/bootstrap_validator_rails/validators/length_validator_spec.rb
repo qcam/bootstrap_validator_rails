@@ -15,19 +15,19 @@ describe BootstrapValidatorRails::Validators::Length do
 
   describe '#generate_data' do
     it 'generates html data tag' do
-      generated_data = bootstrap_validator.generate_data
-      expect(generated_data).to have_key :bv_stringlength
-      expect(generated_data).to have_key :bv_stringlength_min
-      expect(generated_data).to have_key :bv_stringlength_max
-      expect(generated_data[:bv_stringlength_min]).to eq 5
-      expect(generated_data[:bv_stringlength_max]).to eq 10
+      html_attributes = bootstrap_validator.html_attributes
+      expect(html_attributes).to have_key :bv_stringlength
+      expect(html_attributes).to have_key :bv_stringlength_min
+      expect(html_attributes).to have_key :bv_stringlength_max
+      expect(html_attributes[:bv_stringlength_min]).to eq 5
+      expect(html_attributes[:bv_stringlength_max]).to eq 10
     end
   end
 
   describe '#generate_object' do
     it 'generates object' do
-      generated_object = bootstrap_validator.generate_object
-      expect(generated_object).to eq(
+      js_options = bootstrap_validator.js_options
+      expect(js_options).to eq(
         {
           'length_product[title]' => {
             'validators' => {

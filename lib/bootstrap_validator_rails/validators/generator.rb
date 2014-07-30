@@ -6,18 +6,11 @@ module BootstrapValidatorRails
         @kind = validator.kind
       end
 
-      def generate_data(options = {})
+      def generate_js_options
         return {} unless VALIDATOR_SUPPORTED.include?(@kind)
         klass = "BootstrapValidatorRails::Validators::#{@kind.to_s.capitalize}".constantize
         bootstrap_validator = klass.new(@record, @method, @validator)
-        bootstrap_validator.generate_data
-      end
-
-      def generate_json
-        return {} unless VALIDATOR_SUPPORTED.include?(@kind)
-        klass = "BootstrapValidatorRails::Validators::#{@kind.to_s.capitalize}".constantize
-        bootstrap_validator = klass.new(@record, @method, @validator)
-        bootstrap_validator.generate_object
+        bootstrap_validator.js_options
       end
     end
   end

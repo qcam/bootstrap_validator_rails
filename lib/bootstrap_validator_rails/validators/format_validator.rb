@@ -7,9 +7,9 @@ end
 module BootstrapValidatorRails
   module Validators
     class Format < Validator
-      def generate_data
-        data = {}
-        return data if unsupported?
+
+      def generate_options!
+        return if unsupported?
         
         options = validator_options
 
@@ -17,40 +17,18 @@ module BootstrapValidatorRails
         regex.sub!('/^', '^')
         regex.sub!('$/', '$')
         
-        data[:bv_regexp] = 'true'
+        @js_options['regexp'] = {}
+        @html_attributes[:bv_regexp] = 'true'
 
         if options[:with]
-          data[:bv_regexp_regexp] = regex 
+          @js_options['regexp']['regexp'] = regex
+          @html_attributes[:bv_regexp_regexp] = regex 
         end
 
         if options[:message]
-          data[:bv_regexp_message] = options[:message] 
+          @js_options['regexp']['message'] = options[:message]
+          @html_attributes[:bv_regexp_message] = options[:message]
         end
-
-        data
-      end
-
-      def generate_object
-        data = {}
-        return data if unsupported?
-        
-        options = validator_options
-
-        regex = options[:with].to_javascript
-        regex.sub!('/^', '^')
-        regex.sub!('$/', '$')
-        
-        data["regexp"] = {}
-
-        if options[:with]
-          data["regexp"]["regexp"] = regex
-        end
-
-        if options[:message]
-          data["regexp"]["message"] = options[:message]
-        end
-
-        {method_key => {'validators' => data}}
       end
     end
   end

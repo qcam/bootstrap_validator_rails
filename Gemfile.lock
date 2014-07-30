@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bootstrap_validator_rails (0.6.0)
+    bootstrap_validator_rails (0.7.0)
       bootstrap_form (~> 2.0)
 
 GEM

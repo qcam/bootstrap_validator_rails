@@ -3,6 +3,9 @@ module BootstrapValidatorRails
     class Validator
       def initialize(record, method, validator)
         @record, @method, @validator = record, method, validator
+        @js_options = {}
+        @html_attributes = {}
+        generate_options!
       end
 
       def validator_options
@@ -17,6 +20,14 @@ module BootstrapValidatorRails
       def unsupported?
         options = validator_options
         unsupported_options.any? { |opt| options.has_key? opt }
+      end
+
+      def html_attributes
+        @html_attributes
+      end
+
+      def js_options
+        {method_key => {'validators' => @js_options}}
       end
 
       protected

@@ -16,37 +16,37 @@ describe BootstrapValidatorRails::Validators::Numericality do
 
   describe '#generate_data' do
     it 'generates html data tag' do
-      generated_data = bootstrap_validator.generate_data
-      expect(generated_data).to have_key :bv_numeric
-      expect(generated_data).to have_key :bv_greaterthan
-      expect(generated_data).to have_key :bv_greaterthan_inclusive
-      expect(generated_data).to have_key :bv_greaterthan_value
-      expect(generated_data).to have_key :bv_step
-      expect(generated_data).to have_key :bv_step_base
-      expect(generated_data[:bv_greaterthan_value]).to eq 10
+      html_attributes = bootstrap_validator.html_attributes
+      expect(html_attributes).to have_key :bv_numeric
+      expect(html_attributes).to have_key :bv_greaterthan
+      expect(html_attributes).to have_key :bv_greaterthan_inclusive
+      expect(html_attributes).to have_key :bv_greaterthan_value
+      expect(html_attributes).to have_key :bv_step
+      expect(html_attributes).to have_key :bv_step_base
+      expect(html_attributes[:bv_greaterthan_value]).to eq 10
     end
   end
 
   describe '#generate_object' do
     it 'generates html data tag' do
-      generated_object = bootstrap_validator.generate_object['numericality_product[price]']['validators']
+      js_options = bootstrap_validator.js_options['numericality_product[price]']['validators']
 
-      expect(generated_object).to have_key 'integer'
+      expect(js_options).to have_key 'integer'
 
-      expect(generated_object['integer']).to eq({
+      expect(js_options['integer']).to eq({
         'message' => 'should be a number'
       })
 
-      expect(generated_object).to have_key 'greaterThan'
+      expect(js_options).to have_key 'greaterThan'
 
-      expect(generated_object['greaterThan']).to eq({
+      expect(js_options['greaterThan']).to eq({
         'inclusive' => false,
         'value' => 10
       })
       
-      expect(generated_object).to have_key 'step'
+      expect(js_options).to have_key 'step'
 
-      expect(generated_object['step']).to eq({
+      expect(js_options['step']).to eq({
         'message' => 'should be even',
         'base' => 0,
         'step' => 2

@@ -16,17 +16,17 @@ describe BootstrapValidatorRails::Validators::Format do
 
   describe '#generate_data' do
     it 'generates html data tag' do
-      generated_data = bootstrap_validator.generate_data
-      expect(generated_data).to have_key :bv_regexp
-      expect(generated_data).to have_key :bv_regexp_regexp
-      expect(generated_data).to have_key :bv_regexp_message
+      html_attributes = bootstrap_validator.html_attributes
+      expect(html_attributes).to have_key :bv_regexp
+      expect(html_attributes).to have_key :bv_regexp_regexp
+      expect(html_attributes).to have_key :bv_regexp_message
     end
   end
 
   describe '#generate_object' do
     it 'generates options object' do
-      generated_object = bootstrap_validator.generate_object
-      expect(generated_object).to eq (
+      js_options = bootstrap_validator.js_options
+      expect(js_options).to eq (
         {
           'format_product[title]' => {
             'validators' => {
