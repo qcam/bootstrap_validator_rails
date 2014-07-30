@@ -1,3 +1,5 @@
+require 'bootstrap_form'
+
 module BootstrapValidatorRails
   module Helper
     def bootstrap_validation_form_for(object, options = {}, &block)
