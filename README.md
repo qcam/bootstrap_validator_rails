@@ -56,7 +56,7 @@ end
 In your form
 
 ```haml
-= bootstrap_validation_form_for(@product) do |f|
+= bv_form_for(@product) do |f|
   = f.text_field :name
   = f.text_field :price
 ```
