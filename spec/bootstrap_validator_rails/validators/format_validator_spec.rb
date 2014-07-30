@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-class Product
-  include ActiveModel::Validations
-
-  attr_accessor :title
-
-  validates :title, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
-end
-
 describe BootstrapValidatorRails::Validators::Format do
-  let(:product) { Product.new }
+  class FormatProduct
+    include ActiveModel::Validations
+
+    attr_accessor :title
+
+    validates :title, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  end
+
+  let(:product) { FormatProduct.new }
   let(:method) { :title }
-  let(:validator) { Product.validators_on(method).first }
+  let(:validator) { FormatProduct.validators_on(method).first }
   let(:bootstrap_validator) { described_class.new(product, method, validator) }
 
   describe '#generate_data' do
@@ -28,7 +28,7 @@ describe BootstrapValidatorRails::Validators::Format do
       generated_object = bootstrap_validator.generate_object
       expect(generated_object).to eq (
         {
-          'product[title]' => {
+          'formatproduct[title]' => {
             'validators' => {
               'regexp' => {
                 'regexp' => '^[a-zA-Z]+$',

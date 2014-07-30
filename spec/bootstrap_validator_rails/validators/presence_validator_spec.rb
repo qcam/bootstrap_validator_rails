@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-class Product
-  include ActiveModel::Validations
-
-  attr_accessor :title
-
-  validates :title, presence: true
-end
-
 describe BootstrapValidatorRails::Validators::Presence do
-  let(:post) { Product.new }
+  class PresenceProduct
+    include ActiveModel::Validations
+
+    attr_accessor :title
+
+    validates :title, presence: true
+  end
+  
+  let(:post) { PresenceProduct.new }
   let(:method) { :title }
-  let(:validator) { Product.validators_on(method) }
+  let(:validator) { PresenceProduct.validators_on(method) }
   let(:bootstrap_validator) { described_class.new(post, method, validator) }
   
   describe '#generate_data' do
@@ -27,7 +27,7 @@ describe BootstrapValidatorRails::Validators::Presence do
       generate_object = bootstrap_validator.generate_object
       expect(generate_object).to eq(
         {
-          'product[title]' => {
+          'presenceproduct[title]' => {
             'validators' => {
               'notEmpty' => {
                 'message' => "can't be blank"

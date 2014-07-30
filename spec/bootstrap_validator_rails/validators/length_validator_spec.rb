@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-class Product
-  include ActiveModel::Validations
-
-  attr_accessor :title
-
-  validates :title, length: {in: 5..10}
-end
-
 describe BootstrapValidatorRails::Validators::Length do
-  let(:product) { Product.new }
-  let(:validator) { Product.validators_on(:title).first }
+  class LengthProduct
+    include ActiveModel::Validations
+
+    attr_accessor :title
+
+    validates :title, length: {in: 5..10}
+  end
+ 
+  let(:product) { LengthProduct.new }
+  let(:validator) { LengthProduct.validators_on(:title).first }
   let(:bootstrap_validator) { described_class.new(product, :title, validator) }
 
   describe '#generate_data' do
@@ -29,7 +29,7 @@ describe BootstrapValidatorRails::Validators::Length do
       generated_object = bootstrap_validator.generate_object
       expect(generated_object).to eq(
         {
-          'product[title]' => {
+          'lengthproduct[title]' => {
             'validators' => {
               'stringLength' => {
                 'min' => 5,

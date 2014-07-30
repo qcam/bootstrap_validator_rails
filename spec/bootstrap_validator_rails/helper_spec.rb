@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-class Product
-  include ActiveModel::Validations
-
-  attr_accessor :title
-
-  validates :title, presence: true
-end
-
 describe ActionView::Base do
-  let(:product) { Product.new }
+  class HelperProduct
+    include ActiveModel::Validations
+
+    attr_accessor :title
+
+    validates :title, presence: true
+  end
+  
+  let(:product) { HelperProduct.new }
   let(:view) { described_class.new }
 
   describe '#bv_options_for' do
@@ -18,7 +18,7 @@ describe ActionView::Base do
       expect(bv_options).to eq(
         {
           fields: {
-            'product[title]' => {
+            'helperproduct[title]' => {
               'validators' => {
                 'notEmpty' => {
                   'message' => "can't be blank"

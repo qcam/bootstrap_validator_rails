@@ -24,7 +24,7 @@ module BootstrapValidatorRails
 
         if options[:only_integer].present?
           data["integer"] = {}
-          data["integer"][:message] = 'should be a number'
+          data["integer"]['message'] = 'should be a number'
         end
 
         if options[:greater_than].present?
@@ -60,12 +60,12 @@ module BootstrapValidatorRails
 
         if options[:even].present?
           data["step"] = {} 
-          data["step"]["message"] = 'should be odd'
+          data["step"]["message"] = 'should be even'
           data["step"]["base"] = 0 
           data["step"]["step"] = 2
         end
 
-        {method_key => {validators: data}}
+        {method_key => {'validators' => data}}
       end
 
       def generate_options
