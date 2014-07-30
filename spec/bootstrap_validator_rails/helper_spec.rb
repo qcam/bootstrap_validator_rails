@@ -31,10 +31,10 @@ describe ActionView::Base do
     end
   end
 
-  describe '#bootstrap_validation_form_for' do
+  describe '#bv_form_for' do
     it 'generates form tag using #bootstrap_form_for' do
       expect(view).to receive(:bootstrap_form_for).with(product, {builder: BootstrapValidatorRails::FormBuilder})
-      view.bootstrap_validation_form_for(product)
+      view.bv_form_for(product)
     end
   end
 end
