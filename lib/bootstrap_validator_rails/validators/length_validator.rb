@@ -47,7 +47,7 @@ module BootstrapValidatorRails
           data["stringLength"]['message'] = @record.errors.generate_message(@method) 
         end
 
-        {method_key => {validators: data}}
+        {method_key => {'validators' => data}}
       end
     end
   end
