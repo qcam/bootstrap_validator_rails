@@ -92,6 +92,7 @@ Generated HTML
 * text_field 
 * time_field
 * week_field
+* check_box
 
 Please refer to Bootstrap Form: https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
