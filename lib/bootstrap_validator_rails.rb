@@ -5,11 +5,9 @@ require 'bootstrap_validator_rails/configuration'
 require 'bootstrap_validator_rails/validators/attributes'
 require 'bootstrap_validator_rails/validators/generator'
 require 'bootstrap_validator_rails/validators/validator'
-require 'bootstrap_validator_rails/validators/presence_validator'
-require 'bootstrap_validator_rails/validators/numericality_validator'
-require 'bootstrap_validator_rails/validators/length_validator'
-require 'bootstrap_validator_rails/validators/format_validator'
-require 'bootstrap_validator_rails/validators/acceptance_validator'
+BootstrapValidatorRails::VALIDATOR_SUPPORTED.each do |v|
+  require "bootstrap_validator_rails/validators/#{v}_validator"
+end
 
 ActionView::Base.send :include, BootstrapValidatorRails::Helper
 
