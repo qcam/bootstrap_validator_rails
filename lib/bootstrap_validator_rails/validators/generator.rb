@@ -6,6 +6,13 @@ module BootstrapValidatorRails
         @kind = validator.kind
       end
 
+      def generate_html_attributes
+        return {} unless VALIDATOR_SUPPORTED.include?(@kind)
+        klass = "BootstrapValidatorRails::Validators::#{@kind.to_s.capitalize}".constantize
+        bootstrap_validator = klass.new(@record, @method, @validator)
+        bootstrap_validator.html_attributes
+      end
+
       def generate_js_options
         return {} unless VALIDATOR_SUPPORTED.include?(@kind)
         klass = "BootstrapValidatorRails::Validators::#{@kind.to_s.capitalize}".constantize
