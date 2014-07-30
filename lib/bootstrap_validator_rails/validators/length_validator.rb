@@ -26,7 +26,7 @@ module BootstrapValidatorRails
           @js_options['stringLength']['min'] = options[:is]
           @html_attributes[:bv_stringlength_maximum] = options[:is] 
           @js_options['stringLength']['max'] = options[:is]
-          @html_attributes[:bv_stringlength_message] = @js_options['stringLength']['message'] = @record.errors.generate_message(@method) 
+          @html_attributes[:bv_stringlength_message] = @js_options['stringLength']['message'] = generate_message 
         end
       end
     end

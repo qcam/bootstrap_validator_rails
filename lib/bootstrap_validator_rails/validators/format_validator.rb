@@ -26,8 +26,8 @@ module BootstrapValidatorRails
         end
 
         if options[:message]
-          @js_options['regexp']['message'] = options[:message]
-          @html_attributes[:bv_regexp_message] = options[:message]
+          @js_options['regexp']['message'] = generate_message
+          @html_attributes[:bv_regexp_message] = generate_message
         end
       end
     end

@@ -31,9 +31,9 @@ module BootstrapValidatorRails
 
         if options[:only_integer].present?
           @html_attributes[:bv_integer] = 'true'
-          @html_attributes[:bv_integer_message] = 'should be a number'
+          @html_attributes[:bv_integer_message] = generate_message
           @js_options['integer'] = {}
-          @js_options['integer']['message'] = 'should be a number'
+          @js_options['integer']['message'] = generate_message
         end
       end
 
