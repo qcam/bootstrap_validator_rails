@@ -18,7 +18,7 @@ describe ActionView::Base do
       expect(bv_options).to eq(
         {
           fields: {
-            'helperproduct[title]' => {
+            'helper_product[title]' => {
               'validators' => {
                 'notEmpty' => {
                   'message' => "can't be blank"

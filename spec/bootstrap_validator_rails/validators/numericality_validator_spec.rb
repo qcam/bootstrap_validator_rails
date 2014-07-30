@@ -29,7 +29,7 @@ describe BootstrapValidatorRails::Validators::Numericality do
 
   describe '#generate_object' do
     it 'generates html data tag' do
-      generated_object = bootstrap_validator.generate_object['numericalityproduct[price]']['validators']
+      generated_object = bootstrap_validator.generate_object['numericality_product[price]']['validators']
 
       expect(generated_object).to have_key 'integer'
 

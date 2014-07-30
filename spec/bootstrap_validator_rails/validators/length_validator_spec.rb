@@ -29,7 +29,7 @@ describe BootstrapValidatorRails::Validators::Length do
       generated_object = bootstrap_validator.generate_object
       expect(generated_object).to eq(
         {
-          'lengthproduct[title]' => {
+          'length_product[title]' => {
             'validators' => {
               'stringLength' => {
                 'min' => 5,

@@ -27,7 +27,7 @@ describe BootstrapValidatorRails::Validators::Presence do
       generate_object = bootstrap_validator.generate_object
       expect(generate_object).to eq(
         {
-          'presenceproduct[title]' => {
+          'presence_product[title]' => {
             'validators' => {
               'notEmpty' => {
                 'message' => "can't be blank"

@@ -28,7 +28,7 @@ describe BootstrapValidatorRails::Validators::Format do
       generated_object = bootstrap_validator.generate_object
       expect(generated_object).to eq (
         {
-          'formatproduct[title]' => {
+          'format_product[title]' => {
             'validators' => {
               'regexp' => {
                 'regexp' => '^[a-zA-Z]+$',

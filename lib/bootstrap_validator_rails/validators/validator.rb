@@ -25,7 +25,7 @@ module BootstrapValidatorRails
       end
 
       def method_key
-        "#{@record.class.to_s.downcase.to_sym}[#{@method}]"
+        "#{@record.class.to_s.underscore.to_sym}[#{@method}]"
       end
     end
   end
