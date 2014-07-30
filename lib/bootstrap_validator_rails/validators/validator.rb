@@ -30,6 +30,10 @@ module BootstrapValidatorRails
         {method_key => {'validators' => @js_options}}
       end
 
+      def generate_message
+        validator_options[:message] || i18n_message
+      end
+
       protected
       def unsupported_options
         BootstrapValidatorRails::CONFIGURATION[:unsupported_options]
@@ -37,6 +41,10 @@ module BootstrapValidatorRails
 
       def method_key
         "#{@record.class.to_s.underscore.to_sym}[#{@method}]"
+      end
+
+      def i18n_message
+        @record.errors.generate_message(@method, @validator.kind, default: '')
       end
     end
   end

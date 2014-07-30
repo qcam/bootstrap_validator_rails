@@ -6,7 +6,7 @@ describe ActionView::Base do
 
     attr_accessor :title
 
-    validates :title, presence: true
+    validates :title, presence: {message: 'This field is required'}
   end
   
   let(:product) { HelperProduct.new }
@@ -21,7 +21,7 @@ describe ActionView::Base do
             'helper_product[title]' => {
               'validators' => {
                 'notEmpty' => {
-                  'message' => "can't be blank"
+                  'message' => 'This field is required' 
                 }
               }
             }

@@ -6,12 +6,12 @@ describe BootstrapValidatorRails::Validators::Presence do
 
     attr_accessor :title
 
-    validates :title, presence: true
+    validates :title, presence: {message: "Hey guy, fill in please!"}
   end
   
   let(:post) { PresenceProduct.new }
   let(:method) { :title }
-  let(:validator) { PresenceProduct.validators_on(method) }
+  let(:validator) { PresenceProduct.validators_on(method).first }
   let(:bootstrap_validator) { described_class.new(post, method, validator) }
   
   describe '#generate_data' do
@@ -30,7 +30,7 @@ describe BootstrapValidatorRails::Validators::Presence do
           'presence_product[title]' => {
             'validators' => {
               'notEmpty' => {
-                'message' => "can't be blank"
+                'message' => "Hey guy, fill in please!"
               }
             }
           } 

@@ -1,10 +1,6 @@
 module BootstrapValidatorRails
   module Validators
     class Presence < Validator
-      def generate_message
-        @record.errors.generate_message(@method, :blank, default: "can't be blank")
-      end
-
       def generate_options!(options = {})
         return if unsupported?
 
