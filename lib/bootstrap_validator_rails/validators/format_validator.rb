@@ -50,7 +50,7 @@ module BootstrapValidatorRails
           data["regexp"]["message"] = options[:message]
         end
 
-        {method_key => {validators: data}}
+        {method_key => {'validators' => data}}
       end
     end
   end
