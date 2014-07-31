@@ -74,6 +74,20 @@ Generated HTML
 <input id='product_price' name='product[price]' data-bv-greaterthan-inclusive='false' data-bv-greaterthan-value='20' />
 ```
 
+#### ActiveRecord Message
+
+```yml
+activerecord:
+  errors:
+    models:
+      post:
+        attributes:
+          title:
+            blank: is required
+```
+
+Please see: http://guides.rubyonrails.org/i18n.html#error-message-scopes
+
 ## List of helpers supported
 
 * color_field 
