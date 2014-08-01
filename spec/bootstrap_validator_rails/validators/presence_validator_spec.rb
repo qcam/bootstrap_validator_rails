@@ -7,6 +7,7 @@ describe BootstrapValidatorRails::Validators::Presence do
     attr_accessor :title
 
     validates :title, presence: {message: "Hey guy, fill in please!"}
+    validates :price, presence: {on: :create}
   end
   
   let(:post) { PresenceProduct.new }
@@ -36,6 +37,10 @@ describe BootstrapValidatorRails::Validators::Presence do
           } 
         }
       )
+    end
+
+    it 'kjdsafljalksf' do
+      js_options = bootstrap_validator.js_options
     end
   end
 end

@@ -19,6 +19,16 @@ module BootstrapValidatorRails
 
       def unsupported?
         options = validator_options
+
+        on_options_map = {
+          :create => :new_record?,
+          :update => :persisted?
+        }
+
+        if on_options_map.has_key?(options[:on])
+          return true unless @record.send(on_options_map[options[:on]])
+        end
+
         unsupported_options.any? { |opt| options.has_key? opt }
       end
 
@@ -32,6 +42,10 @@ module BootstrapValidatorRails
 
       def generate_message
         validator_options[:message] || i18n_message
+      end
+
+      def generate_options!
+        {}
       end
 
       protected
