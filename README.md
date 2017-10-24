@@ -4,7 +4,7 @@ Bootstrap Validator Rails
 Rails client side validation using BootstrapValidator Plugin: https://github.com/nghuuphuoc/bootstrapvalidator
 Bootstrap Form as the form builder. https://github.com/bootstrap-ruby/rails-bootstrap-form
 
-##Installation
+## Installation
 
 ```sh
 gem install bootstrap_validator_rails
@@ -22,7 +22,7 @@ then run
 bundle install
 ```
 
-##Usage
+## Usage
 
 Add this to your `application.js`
 
